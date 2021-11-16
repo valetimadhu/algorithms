@@ -57,12 +57,34 @@ public class OneDArray {
 		}
 		return small;
 	}
+	
+	public int firstNonRepetitive(int[] arr){
+		int result =0;
+		for(int i =0; i< arr.length; i++){
+		int cntr =0;
+		for(int j=i+1; j< arr.length; j++){
+				cntr++;
+				if(arr[i] == arr[j]) {
+					cntr =0;
+					arr[j] =0;
+					break;
+				}
+				
+			}
+		if(cntr == arr.length -1 -i) {
+			result= arr[i];
+			return result;
+		}
+		}
+		return result;
+	}
+
 	public static void main(String[] args) {
 		
 		OneDArray oneD= new OneDArray();
 		int arr1[] = {1,3,5,7};
 		int arr2[] = { 2,4,6,8};
-		int arr3[] = {1,2,3,4};
+		int arr3[] = {4,5,1,2,0,4};
 		
 //		int merged[];
 //		merged = oneD.mergeSortedArrays(arr1, arr2);
@@ -76,7 +98,7 @@ public class OneDArray {
 //		System.out.println(result[i]);
 //		}
 
-		System.out.println(oneD.smallInArray(arr3));
+		System.out.println(oneD.firstNonRepetitive(arr3));
 		
 	}
 
