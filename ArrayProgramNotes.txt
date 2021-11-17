@@ -75,9 +75,19 @@ public int smallInArray(int[] arr){
 }
 
 public int firstNonRepetitive(int[] arr){
-	for(int i =0; i< arr.length; i++){
-		
+		for(int i =0; i< arr.length; i++){
+		boolean isRepeated =false;
+		for(int j=0; j< arr.length; j++){
+				if(arr[i] == arr[j] && i !=j) {
+					isRepeated = true;
+					break;
+				}
+				
+			}
+		if(isRepeated == false) {
+			return arr[i];
+		}
+		}
+		return -1;
 	}
-}
-
 
