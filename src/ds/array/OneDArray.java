@@ -75,6 +75,26 @@ public class OneDArray {
 		return -1;
 	}
 
+	public int find(int[] arr, int n){
+		 int arraySize = arr.length;
+		 int lowerBound = 0;
+		 int upperBound = arraySize-1;
+		 while(arraySize > 0){
+		 int curIndex = (lowerBound + upperBound)/2;
+		 	if( n == arr[curIndex] )
+		 	return arr[curIndex];
+		 	else if(lowerBound > upperBound)
+		 	return arraySize;
+		 	else{
+		 		if( n > arr[curIndex]){
+		 		lowerBound = curIndex +1;
+		 		}else {
+		 		upperBound = curIndex -1;
+		 		}
+		 	}	 
+		 	}
+		 	return arraySize;
+	}
 	public static void main(String[] args) {
 		
 		OneDArray oneD= new OneDArray();
@@ -94,7 +114,8 @@ public class OneDArray {
 //		System.out.println(result[i]);
 //		}
 
-		System.out.println(oneD.firstNonRepetitive(arr3));
+		//System.out.println(oneD.firstNonRepetitive(arr3));
+		System.out.println(oneD.find(arr3, 9));
 		
 	}
 
