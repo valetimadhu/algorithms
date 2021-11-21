@@ -1,0 +1,105 @@
+slidingwindow:
+bruteforce:
+
+given array size: 10
+sub array: 4
+1,2,3,4,5,6,7,8,9,10.
+1,2,3,4;
+2,3,4,5;
+3,4,5,6;
+4,5,6,7;
+5,6,7,8;
+6,7,8,9;
+7,8,9,10:
+total : 6 ( 10-4+1); ( arr.length- sub+1) 
+public double[] findAveragesBF(int[] arr, int k){
+		 double[] result = new double[arr.length-k+1];
+		 for(int i=0; i<=arr.length-k; i++){
+		 	int sum =0;
+		 	for(int j=i; j<i+k; j++){
+		 		sum += arr[j];
+		 		result[i] = sum/k;
+		 	} 
+		 }
+		 return result;
+		}
+		
+
+using sliding window:
+
+public double findAverage(int[] arr, int k){
+	private double[] result = new double[arr.length-k+1];
+	int windowStart = 0;
+	int windowSum =0;
+	for(int windowEnd=0; windowEnd<arr.length; windowEnd ++){
+	 windowSum += arr[windowEnd];
+	 if( windowEnd >= k-1){
+	  result[windowStart] = windowSum/k;
+	  windowSum -= arr[windowStart];
+	  windowStart ++;
+	 }
+	} 
+	return result;
+}
+
+
+public int maxSumSubArrayBF(int[] arr, int k){
+	int maxsum =0;
+	for(int i=0; i<= arr.length-k; i++){
+	int sum = 0;
+		for(int j= i; j < i+K; j++){
+		 sum += arr[j];
+		}
+	if(sum > maxsum) maxsum = sum;
+	}
+	return maxsum;
+}
+
+public int maxSumSubArray(int[] arr, int k){
+	int maxSum =0;
+	int windowStart =0;
+	int windowSum =0;
+	for(int windowEnd =0; windowEnd < arr.length; wondowEnd ++{
+		windowSum += arr[windowEnd];
+		if(windowEnd >= k-1){
+		if(windowSum > maxSum) maxSum = windowSum;
+		windowSum -= arr[windowStart];
+		windowStart ++;
+		}
+	}
+	return maxSum;
+}
+
+l >=1; l<= arr.leghth; l++
+sum = 0;
+i=0; i< l; i++
+sum += arr[i]
+if(sum > = s) 
+return l;
+
+public int minSubArrayBF(int[] arr, int s){
+	for( l =1; l<= arr.length; l++){
+		int sum = 0;
+		for(int i=l; i< l; i++){
+			sum += arr[i];
+		}
+	if(sum >= s) return l;
+	}
+} 
+
+public int minSubArray(int[] arr, int s){
+ 	int windowSum=0;
+ 	int windowStart =0;
+ 	int minArrLength = Integer.MAX_VALUE;
+
+ 	for(int windowEnd =0; windowEnd < arr.length; windowEnd++){
+ 		windowSum += arr[windowEnd];
+ 		while(windowSum >= s){
+ 			minArrLength = Math.min(minArrLength, windowEnd - windowStart +1);
+ 			windowSum -= arr[windowStart];
+ 			windowStart ++;
+ 		}
+ 	}
+ 	return minArrLength == Integer.MAX_VALUE?0: minArrLength;
+}
+
