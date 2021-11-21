@@ -1,4 +1,4 @@
-package algorithm.slidingwindow;
+package algorithm.dynamic;
 
 public class slidingwindoweasy {
 	
