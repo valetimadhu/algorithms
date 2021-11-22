@@ -194,3 +194,49 @@ pbulic int findCycleLength(Listnode node){
 	return cycleLength;
 }
 
+1>sort the intervals among a,b : a.start<=b.start
+2> if a overlaps b means b.start <= a.end
+ merge a,b with new interval c
+	c.start= a.start
+	c.end = max( b.start, a.end)
+	
+3>repeat the above two steps with c and next element of c 
+public static List<Interval> mergeIntervals(List<Interval> intervals){
+		List<Interval> mergedIntervals = new LinkedList<>();
+		//sort intervals.
+		Iterator<Internal> iterator = internals.iterator();
+		IInternal internal = iterator.next();
+		int start= inerval.start;
+		int end = interval.end;
+		while(iterator.hasNext()){
+			interval = iterator.hasNext();
+			if(interval.start <= end){
+			end = Math.max(interval.start, end);
+			}else{
+			mergedIntervals.add(new Internal(start,end);
+			start = interval.start;
+			end = interval.end;
+			}
+		}
+		mergedIntervals.add(new Interval(start,end));
+		
+	}
+	
+1,5
+
+3,6
+7,9
+public boolean isOverlap(List<Interval> intervals) {
+		Collections.sort(intervals, (a,b)->Integer.compare(a.start,b.start));
+		Iterator<Interval> iterator = intervals.iterator();
+		Interval interval = iterator.next();
+		int start = interval.start;
+		int end = interval.end;
+		while(iterator.hasNext()){
+			interval = iterator.next();
+			if(interval.start <= end) return true;
+		}
+		
+		return false;
+	}
+
