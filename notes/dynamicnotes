@@ -172,3 +172,25 @@ public int[] squareOfSortedArray(int[] arr){
 	
 }
 
+public boolean hasCycle(Listnode head){
+	Listnode slow = head;
+	Listnode fast = head;
+	while(fast != null && fast.next != null){
+	fast = fast.next.next;
+	slow = slow.next;
+	if( slow ==fast) return true;
+	}
+	
+	return false;
+}
+
+pbulic int findCycleLength(Listnode node){
+	Listnode current = node;
+	int cycleLength =0;
+	do{
+	current = current.next;
+	cycleLength++;
+	}while(current != node);
+	return cycleLength;
+}
+
