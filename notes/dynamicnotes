@@ -103,3 +103,72 @@ public int minSubArray(int[] arr, int s){
  	return minArrLength == Integer.MAX_VALUE?0: minArrLength;
 }
 
+Two pointers pattern:
+
+public int[] pairWithGivenSum(int[] arr, int s){
+	int[] pair = new int[2];
+	int pairOne = 0;
+	int pairTwo = arr.length;
+	int pairSum =0;
+	while(pairOne < pairTwo){
+		pairSum = arr[pairOne] + arr[pairTwo];
+		if(pairSum == s){
+			pair[0] = pairOne;
+			pair[1] = pairTwo;
+			return pair;
+		}
+		else if(pairSum > s)
+			pairTwo--;
+		else pairOne++;
+	}
+	return pair;
+}
+
+1,2,2,3,4,5,6,6,6,7
+length 10
+p1 = 0;
+p2=p1+1;
+
+
+public int removeDuplicates(int[] arr){
+	int nextNonDuplicate=1;
+	for(int i=1; i< arr.length; i++){
+		if(arr[nextNonDuplicate-1] != arr[i]){
+			arr[nextNonDuplicate] == arr[i];
+			nextNonDuplicate++;
+		}
+	}
+	return nextNonDuplicate;
+}
+
+public int removeAllInstancesOfGivenKey(int[] arr, int k){
+	int newArrPointer =0;
+	for(int i=0; i< arr.length; i++){
+		if(arr[i] != k){
+		arr[newArrPointer] = arr[i];
+		newArrPointer++;
+		}
+	}
+	return newArrPointer;
+}
+
+public int[] squareOfSortedArray(int[] arr){
+	int[] arrSquares = new int[arr.length];
+	int leftPointer =0;
+	int rightPointer = arr.length -1;
+	int lowSquareIndex =0;
+	while(lefePointer < rightPointer){
+		int leftSquare = arr[leftPointer] * arr[leftPointer];
+		int rightSquare = arr[rightPointer] * arr[rightPointer];
+		if(leftSquare < rightSquare){
+			arrSquares[lowSquareIndex++] = leftSquare;
+			leftPointer++;
+		}else{
+			arrSquares[lowSquareIndex++] = rightSquare;
+			rightPointer--;
+		}
+	}
+	return arrSquares;
+	
+}
+
