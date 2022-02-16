@@ -37,17 +37,7 @@ public class slidingwindoweasy {
 		return result;
 	}
 	
-	public int maxSumSubArrayBF(int[] arr, int k){
-		int maxsum =0;
-		for(int i=0; i<=arr.length-k; i++){
-		int sum = 0;
-			for(int j= i; j < i+ k; j++){
-			 sum += arr[j];
-			}
-		if(sum > maxsum) maxsum = sum;
-		}
-		return maxsum;
-	}
+	
 	public int maxSumSubArray(int[] arr, int k){
 		int maxSum =0;
 		int windowStart =0;
@@ -63,7 +53,17 @@ public class slidingwindoweasy {
 		return maxSum;
 	}
 	
-	
+	public  int minSumSubArrayBF(int[] arr, int s) {
+		int subArrayLength = Integer.MAX_VALUE;
+		for( subArrayLength =1; subArrayLength<= arr.length; subArrayLength++){
+			int sum = 0;
+			for(int i=subArrayLength; i< subArrayLength; i++){
+				sum += arr[i];
+			}
+		if(sum >= s) return subArrayLength;
+		}
+		return -1;
+	}
 	public int minSubArray(int[] arr, int s){
 	 	int windowSum=0;
 	 	int windowStart =0;
@@ -89,14 +89,14 @@ public class slidingwindoweasy {
 		
 		double[] resultBF = slidingwindoweasy.findAveragesBF(arr, 3);
 		for(double d: resultBF) {
-		System.out.println("Find average "+d);
+		//System.out.println("Find average "+d);
 		}
 		double[] result = slidingwindoweasy.findAverages(arr, 3);
 		for(double d: result) {
-		System.out.println("Find average "+d);
+		//System.out.println("Find average "+d);
 		}
 		
-		System.out.println(" MaxSumArray :  "+slidingwindoweasy.maxSumSubArray(arr, 5));
+		//System.out.println(" MaxSumArray :  "+slidingwindoweasy.maxSumSubArray(arr, 5));
 		System.out.println(" Min Sub Array Length :  "+slidingwindoweasy.minSubArray(arr, 13));
 
 	}

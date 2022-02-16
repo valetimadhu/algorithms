@@ -95,6 +95,37 @@ public class OneDArray {
 		 	}
 		 	return arraySize;
 	}
+	public static int secondMinBF(int[] arr){
+		int min = Integer.MAX_VALUE;
+		int secondMin = Integer.MAX_VALUE;
+		for(int i=0; i< arr.length; i++){
+			if(arr[i] < min) min = arr[i];
+		}
+		for(int j= 0; j< arr.length; j++){
+		if(arr[j] > min & arr[j] < secondMin) {
+			secondMin = arr[j];
+		}
+		}
+		
+		return secondMin;
+	}
+	
+	public static int secondMin(int[] arr){
+		int min = Integer.MAX_VALUE;
+		int secondMin = Integer.MAX_VALUE;
+		for(int i=0; i< arr.length; i++){
+			if(arr[i] < min) {
+				secondMin = min;
+				min = arr[i];
+			}
+			else if(arr[i] < secondMin && arr[i] != min){
+			secondMin = arr[i];
+			}
+			
+		}
+		return secondMin;
+	}
+
 	public static void main(String[] args) {
 		
 		OneDArray oneD= new OneDArray();
@@ -115,7 +146,8 @@ public class OneDArray {
 //		}
 
 		//System.out.println(oneD.firstNonRepetitive(arr3));
-		System.out.println(oneD.find(arr3, 9));
+		//System.out.println(oneD.find(arr3, 9));
+		System.out.println(oneD.secondMin(arr1));
 		
 	}
 

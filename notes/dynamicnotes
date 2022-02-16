@@ -87,7 +87,9 @@ public int minSubArrayBF(int[] arr, int s){
 	}
 } 
 
-public int minSubArray(int[] arr, int s){
+public int 
+
+(int[] arr, int s){
  	int windowSum=0;
  	int windowStart =0;
  	int minArrLength = Integer.MAX_VALUE;
@@ -240,3 +242,50 @@ public boolean isOverlap(List<Interval> intervals) {
 		return false;
 	}
 
+
+public static int findMaxSubArray(int[] arr, int k){
+	int maxSum=0;
+	for(int i=0; i< arr.length; i++){
+		kSum = 0;
+		for(int j=i; j< k; j++{
+			kSum += arr[j];
+			
+		}
+		if(kSum > maxSum) maxSum = kSum;
+	}
+	return maxSum;
+}
+if k=4
+window = 0,1,2,3
+public static int findMaxSubArray(int[] arr, int k){
+	int maxSum=0;
+	int windowSum =0;
+	int windowStart =0;
+	for(int windowEnd=0; windowEnd < arr.length; windowEnd++){
+		windowSum += arr[windowEnd];
+		if(windowEnd >= k-1){
+			if(windowSum >maxSum) maxSum = windowSum;
+			windowSum -= arr[windowStart];
+			windowStart++;
+		} 
+	}
+	return maxSum;
+}
+
+0,1,2,3,4,5
+0, 0 1 , 0 1 2, 0 1 2 3, 0 1 2 3 4
+
+public static int smallestSubAryMoreThanGivenNum(int[] arr, int s){
+int subArryLength;
+
+for(int i=1; i<= arr.length; i++){
+	int subSum =0;
+	for( int j= 0; j< i; j++){
+	   subSum += arr[j];
+	}
+	if(subSum > = s) subArrayLength = 
+}
+
+return subArraylength;	
+	
+}

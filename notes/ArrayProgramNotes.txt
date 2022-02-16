@@ -92,3 +92,38 @@ public int firstNonRepetitive(int[] arr){
 	}
 
 
+public static int secondMinBF(int[] arr){
+		int min = Integer.MAX_VALUE;
+		int secondMin = Integer.MAX_VALUE;
+		for(int i=0; i< arr.length; i++){
+			if(arr[i] < min) min = arr[i];
+		}
+		for(int j= 0; j< arr.length; j++){
+		if(arr[j] > min & arr[j] < secondMin) {
+			secondMin = arr[j];
+		}
+		}
+		
+		return secondMin;
+	}
+	
+5 3 1 7
+	1 
+	min =1
+	
+public static int secondMin(int[] arr){
+	int min = Integer.MAX_VALUE;
+	int secondMin = Integer.MAX.VALUE;
+	for(int i=0; i< arr.lengthl i++){
+		if(arr[i] < min) {
+			secondMin = min;
+			min = arr[i];
+		}
+		else if(arr[i] < secondMin && arr[i] != min){
+		secondMin = arr[i];
+		}
+		
+	}
+	return secondMin;
+}
+
