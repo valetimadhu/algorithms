@@ -127,3 +127,37 @@ public static int secondMin(int[] arr){
 	return secondMin;
 }
 
+
+public static int[] pairSum(int[] arr, int sum){
+	int p1=0, p2=arr.length;
+	int[] pair = new int[2];
+	int pairSum = 0;
+	while( p1< p2) {
+		paiSum = arr[p1] + arr[p2]
+		if(  pairSum == sum) {
+		pair[0] = p1;
+		pair [1] = p2  
+		return pair;
+		} else if (  pairSum > sum){
+			p2--;
+		} else{
+			p1++;
+		}
+	}
+	
+	1,3,5,7,8,9,10
+	n= 12
+	1,3,5,
+public static int[] pairSet(int[] arr, int sum){
+	int[] result = new int[2];
+	Set<Integer> set = new HashSet<Integer>();
+	for(int i: arr){
+	if(set.contains(n-i)){
+	result[0] = set[i];
+	result[1] = set[n-i];
+	break;
+	}
+	set.add(i);
+	}
+	return result;
+}

@@ -1,5 +1,10 @@
 package ds.array;
 
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 public class OneDArray {
 
 	public int[] mergeSortedArrays(int[] arr1, int[] arr2){
@@ -125,13 +130,67 @@ public class OneDArray {
 		}
 		return secondMin;
 	}
+	
+	public static int[] findPairSumWithSet(int[] arr, int sum){
+		int[] result = new int[2];
+		Set<Integer> set = new HashSet<Integer>();
+		for(int i: arr){
+		if(set.contains(sum-i)){
+		result[0] = i;
+		result[1] = sum-i;
+		break;
+		}
+		set.add(i);
+		}
+		return result;
+	}
 
+	public static int[] findProduct(int arr[])  
+	  {    
+	    int [] result = new int[arr.length];
+	    int product=1;
+	    boolean hasZero= false;
+	    for(int i=0; i< arr.length; i++){
+	      if( arr[i] == 0) hasZero = true;
+	      else product = product * arr[i];
+	    }
+	    for(int j=0; j< arr.length; j++){
+	      if (arr[j] ==0 ) {
+	        result [j] = product ;
+	      }else {
+	          if(hasZero) result[j] = 0;
+	          else result[j] = product / arr[j];
+	      }
+	    }
+
+	    // write your code here
+
+	    return result; 
+	   } 
+	
+	public static int firstUnique(int[] arr) {
+		int result = -1;
+		Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+		for(int i : arr) {
+			if(!map.containsKey(i)) 
+				map.put(i,0);
+			else 
+				map.put(i, map.get(i)+1);
+		}
+		
+		for(int j=0; j< arr.length; j++) {
+			if(map.get(arr[j]) ==0 ) return  arr[j];
+		}
+		return result;
+
+	}
 	public static void main(String[] args) {
 		
 		OneDArray oneD= new OneDArray();
 		int arr1[] = {1,3,5,7};
-		int arr2[] = { 2,4,6,8};
+		int arr2[] = { 2,4,6,8,0};
 		int arr3[] = {1,2,1,1,3,4,2};
+		int arr4[] = {4,5,1,2,0,4};
 		
 //		int merged[];
 //		merged = oneD.mergeSortedArrays(arr1, arr2);
@@ -147,8 +206,14 @@ public class OneDArray {
 
 		//System.out.println(oneD.firstNonRepetitive(arr3));
 		//System.out.println(oneD.find(arr3, 9));
-		System.out.println(oneD.secondMin(arr1));
+		//System.out.println(oneD.secondMin(arr1));
+		//for(int i: OneDArray.findProduct(arr2)) {
+		//	System.out.println(i);
+		//}
+		System.out.println(OneDArray.firstUnique(arr4));
 		
 	}
+	
+	
 
 }
