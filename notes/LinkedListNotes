@@ -1,0 +1,65 @@
+LinkedListNotes
+
+class Link{
+ int val;
+ Link next;
+ Link( int val){
+  this.val = val;
+ }
+ 
+ void display(){
+ System.out.println(this.val);
+ }
+}
+
+class LinkedList {
+
+ Link first;
+ LinkedList(Link link){
+ 	first = null;
+ }
+ 
+ boolean isEmpty(){
+ 	 return if(first == null);
+ }
+ 
+ Link insertFirst(Link link){
+ 	link.next = first;
+ 	first = link;
+ }
+ 
+ Link deleteFirst(){
+ 	Link temp = first;
+ 	first = first.next;
+ 	return temp;
+ 	
+ }
+ 
+ Link find(int id){
+ 	Link current = first;
+ 	while(current.val != id){
+ 	if ( current.next == null) return null;
+ 	else current = current.next;
+ 	}
+ 	return current;
+ }
+ 
+ Link delete(int id){
+ 	Link previous = first;
+ 	Link currnet = first;
+ 	while(current.val != id){
+ 	if(current.next == null) return null;
+ 	else{
+ 		previous = current;
+ 		current = current.next;
+ 	}
+ 	}
+ 	if(current = first)
+ 		previous = first.next;
+ 	else{
+ 		previous.next = current.next;
+ 	}
+ 	
+ 	return current;
+ }
+}
