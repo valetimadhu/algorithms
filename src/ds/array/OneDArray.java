@@ -184,6 +184,25 @@ public class OneDArray {
 		return result;
 
 	}
+	public static int[] removeEven(int[] arr){
+		int[] oddArr;
+		int oddArrSize =0;
+		for(int i=0; i< arr.length; i++)
+		{
+			if(arr[i] %2 != 0) oddArrSize++;
+		}
+
+		oddArr = new int[oddArrSize];
+		int oddArrlen =0;
+		for(int j=0; j < arr.length; j++){
+			if(arr[j] %2 !=0) {
+				oddArr[oddArrlen] = arr[j];
+				oddArrlen++;
+			}
+		}
+
+		return oddArr;
+		}
 	public static void main(String[] args) {
 		
 		OneDArray oneD= new OneDArray();
@@ -210,7 +229,8 @@ public class OneDArray {
 		//for(int i: OneDArray.findProduct(arr2)) {
 		//	System.out.println(i);
 		//}
-		System.out.println(OneDArray.firstUnique(arr4));
+		System.out.println(OneDArray.removeEven(arr4));
+		
 		
 	}
 	
