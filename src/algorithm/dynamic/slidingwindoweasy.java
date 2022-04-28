@@ -68,17 +68,17 @@ public class slidingwindoweasy {
 	 	int windowSum=0;
 	 	int windowStart =0;
 	 	int minArrLength = Integer.MAX_VALUE;
-	 	int cntr =0;
+	 	//int cntr =0;
 	 	for(int windowEnd =0; windowEnd < arr.length; windowEnd++){
 	 		windowSum += arr[windowEnd];
 	 		while(windowSum >= s){
-	 			cntr++;
+	 			//cntr++;
 	 			minArrLength = Math.min(minArrLength, windowEnd - windowStart +1);
 	 			windowSum -= arr[windowStart];
 	 			windowStart ++;
 	 		}
 	 	}
-	 	System.out.println("cntr  :" +cntr);
+	 	//System.out.println("cntr  :" +cntr);
 	 	return minArrLength == Integer.MAX_VALUE?0: minArrLength;
 	}
 	public static void main(String[] args) {
