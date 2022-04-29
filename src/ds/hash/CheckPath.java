@@ -1,6 +1,8 @@
 package ds.hash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckPath {
@@ -40,6 +42,28 @@ public class CheckPath {
 		return from;
 	}
 
+	static String startingPointBF(String[][] cities) {
+		List<City> citiesList = new ArrayList<>();
+		String starting ="";
+		for(int i=0; i< cities.length; i++) {
+			for(int j=0; j<2; j++) {
+				citiesList.add(new City(cities[i][0], cities[i][1]));
+			}
+		}
+		boolean match = false;
+		for(City first: citiesList) {
+			match = false;
+			for(City second : citiesList) {
+				if( first.starting == second.end ) {
+					match = true;
+					break;
+				}
+				
+			}
+			if(!match) return first.starting;
+		}
+		return starting;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		HashMap<String,String> map = new HashMap<>();
@@ -48,6 +72,19 @@ public class CheckPath {
 		map.put("Missouri","NewYork");
 		map.put("Texas","Missouri");
 		System.out.println(tracePath(map));
+		
+		String[][] cities = {{"NewYork","Chicago"}, {"Boston","Texas"}, {"Missouri","NewYork"},{"Texas","Missouri"}};
+		System.out.println(" Starting point using strings array :"+startingPointBF(cities));
+		
 	}
 
+}
+class City {
+	String starting;
+	String end;
+	public City(String s, String e) {
+		this.starting =s;
+		this.end = e;
+	}
+	
 }
