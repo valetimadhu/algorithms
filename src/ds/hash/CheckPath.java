@@ -64,6 +64,13 @@ public class CheckPath {
 		}
 		return starting;
 	}
+	public static Map<String,String>  constructCityMap(String[][] cities){
+		Map<String,String> cityMap = new HashMap<>();
+		for(int i=0; i< cities.length; i++) {
+				cityMap.put(cities[i][0], cities[i][1]);
+		}
+		return cityMap;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		HashMap<String,String> map = new HashMap<>();
@@ -71,10 +78,16 @@ public class CheckPath {
 		map.put("Boston","Texas");
 		map.put("Missouri","NewYork");
 		map.put("Texas","Missouri");
-		System.out.println(tracePath(map));
+		//System.out.println(tracePath(map));
 		
 		String[][] cities = {{"NewYork","Chicago"}, {"Boston","Texas"}, {"Missouri","NewYork"},{"Texas","Missouri"}};
-		System.out.println(" Starting point using strings array :"+startingPointBF(cities));
+		for(Map.Entry<String,String> entry: constructCityMap(cities).entrySet()) {
+			System.out.println(entry.getKey());
+			//System.out.println(entry.getValue());
+			
+			
+		}
+		//System.out.println(" Starting point using strings array :"+startingPointBF(cities));
 		
 	}
 

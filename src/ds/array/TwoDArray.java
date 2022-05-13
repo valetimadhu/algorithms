@@ -12,6 +12,12 @@ public class TwoDArray {
 			my2DArray[i] = new int[10];
 			for(int j=0; j<10; j++) {
 				my2DArray[i][j] = i+j;
+
+			}
+		}
+		
+		for(int i =0; i< my2DArray.length; i++) {
+			for(int j=0; j< my2DArray[i].length; j ++) {
 				System.out.println(my2DArray[i][j]);
 			}
 		}

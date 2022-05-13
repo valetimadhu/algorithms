@@ -1,24 +1,28 @@
 package ds.hash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MiddleOfTheCourse {
 
 	public static String findMiddle(String[][] courses) {
-		for(Map.Entry<String,String> entry : constructMap(courses).entrySet()) {
-			System.out.println(entry.getKey()+"  "+entry.getValue());
-		}
-		
 		Map<String,String> map = constructMap(courses);
 		String from = findStartingPoint(map);
 		
-		Map<Integer,String> orderedMap = new HashMap<Integer,String>();
-		orderedMap.put(0, from);
+		List<String> orderedCourses = new ArrayList<String>();
 		
-		
-		
-		return null;
+		orderedCourses.add(from);
+		int cntr=0;
+		String key= from;
+		while(cntr < courses.length) {
+			orderedCourses.add(map.get(key));
+			key = map.get(key);
+			cntr ++;
+		}
+		orderedCourses.forEach(s -> System.out.println(s));
+		return orderedCourses.get(orderedCourses.size() /2);
 	}
 	
 	public static Map<String,String > constructMap(String[][] courses){
@@ -53,7 +57,7 @@ public class MiddleOfTheCourse {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String[][] courses = {{"NewYork","Chicago"}, {"Boston","Texas"}, {"Missouri","NewYork"},{"Texas","Missouri"}};
-		findMiddle(courses);
+		System.out.println(findMiddle(courses));
 	}
 
 }
