@@ -1,6 +1,8 @@
 package ds.hash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MiddleOfTheCourse {
@@ -13,8 +15,9 @@ public class MiddleOfTheCourse {
 		Map<String,String> map = constructMap(courses);
 		String from = findStartingPoint(map);
 		
-		Map<Integer,String> orderedMap = new HashMap<Integer,String>();
-		orderedMap.put(0, from);
+		List<String> orderedList = new ArrayList<>();
+		
+		
 		
 		
 		
