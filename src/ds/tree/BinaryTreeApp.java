@@ -1,8 +1,10 @@
 package ds.tree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 class Node{
 	public int key;
@@ -176,6 +178,88 @@ class BTree{
 		
 		return last;
 	}
+	
+	private List<Integer> levelOrderKeysArray = new ArrayList<>();
+	
+	
+	public List<Integer> getLevelOrderKeysArray() {
+		return levelOrderKeysArray;
+	}
+
+
+	public void levelOrder() {
+		if(root == null) {
+			return;
+		}
+
+		Queue<Node> nodes = new LinkedList();
+		nodes.add(root);
+		while(!nodes.isEmpty()) {
+			Node node = nodes.remove();
+			levelOrderKeysArray.add(node.key);
+			
+			if(node.leftChild != null ) {
+				nodes.add(node.leftChild);
+			}
+			
+			if(node.rightChild != null) {
+				nodes.add(node.rightChild);
+			}
+			
+			
+		}
+	}
+	
+	
+	public void displayTree(){
+		Stack globalStack = new Stack();
+		globalStack.push(root);
+		int nBlanks = 32;
+		boolean isRowEmpty = false;
+//		System.out.println(
+//		"........................................................");
+		
+		while(isRowEmpty ==false) {
+			Stack localStack = new Stack();
+			isRowEmpty = true;
+			
+			for(int j=0; j< nBlanks ; j++) 
+				System.out.print(' ');
+			
+			while(globalStack.isEmpty() == false) {
+				Node temp = (Node)globalStack.pop();
+				if(temp != null) {
+					System.out.print(temp.key);
+					localStack.push(temp.leftChild);
+					localStack.push(temp.rightChild);
+					
+					if(temp.leftChild != null || temp.rightChild != null)
+						isRowEmpty = false;
+				}
+				else {
+					System.out.print("..");
+					localStack.push(null);
+					localStack.push(null);
+				}
+				
+				for(int j=0; j< nBlanks*2-2; j++) {
+					System.out.print(' ');
+				}
+			} // end of while globalStack.isEmpty();
+			
+		
+		System.out.println();
+		nBlanks /= 2;
+		while(localStack.isEmpty() == false)
+			globalStack.push(localStack.pop());
+//		System.out.println(
+//				"..............................");
+//			
+//			
+		}
+	
+	}
+	
 }
 
 
@@ -196,7 +280,7 @@ public class BinaryTreeApp {
 
 		//btree.find(4).display();
 		//btree.traverse(1);
-		btree.traverse(2);
+		//btree.traverse(2);
 		
 		//btree.traverse(3);
 		
@@ -213,11 +297,16 @@ public class BinaryTreeApp {
 		btree1.insert(new Node(9, "Sanjay"));
 		
 		
-		btree1.traverse(2);
+		//btree1.traverse(2);
 		
-		boolean isIdentical = Arrays.equals(btree.getTraverseKeysArray(), btree1.getTraverseKeysArray());
-		System.out.println('\n');
-		System.out.println(isIdentical);
+		//boolean isIdentical = Arrays.equals(btree.getTraverseKeysArray(), btree1.getTraverseKeysArray());
+		//System.out.println('\n');
+		//System.out.println(isIdentical);
+		btree1.displayTree();
+		btree1.levelOrder();
+		for(Integer i: btree1.getLevelOrderKeysArray()) {
+			System.out.println(i);
+		}
 		
 		
 	}
