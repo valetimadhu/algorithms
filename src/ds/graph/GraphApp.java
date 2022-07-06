@@ -68,16 +68,15 @@ class Vertex {
 }
 
 class GraphWAdjMtrx {
-	final int MAX_VERTS = 20;
+	
 	Vertex[] vertexList;
 	int nVerts;
 	int adjMat[][];
-	public GraphWAdjMtrx() {
-		Vertex[] vertexList;
+	public GraphWAdjMtrx(int maxNoOfVrtx) {
 		nVerts = 0;
-		adjMat = new int[MAX_VERTS][MAX_VERTS];
-		for (int j = 0; j < MAX_VERTS; j++) {
-			for (int k = 0; k < MAX_VERTS; k++) {
+		adjMat = new int[maxNoOfVrtx][maxNoOfVrtx];
+		for (int j = 0; j < maxNoOfVrtx; j++) {
+			for (int k = 0; k < maxNoOfVrtx; k++) {
 				adjMat[j][k] = 0;
 			}
 		}
@@ -92,8 +91,30 @@ class GraphWAdjMtrx {
 		adjMat[end][start] = 1;
 	}
 
+	public void addEdge(int start, int end,int weight) {
+		adjMat[start][end] = weight;
+		adjMat[end][start] = weight;
+	}
+
 	public void displayVertex(int v) {
 		System.out.println(vertexList[v].label);
 	}
 
+}
+
+class GraphWAdjLst {
+	int vertices;
+	LinkedList<Integer>[] adjList;
+	public GraphWAdjLst(int noOfVrtx) {
+		this.vertices = noOfVrtx; 
+		adjList = new LinkedList[noOfVrtx];
+		for(int i=0; i< noOfVrtx; i++) {
+			adjList[i] = new LinkedList<>();
+		}
+	}
+	
+	public void addEdge(int start, int end) {
+		this.adjList[start].addLast(end);
+	}
+	
 }
