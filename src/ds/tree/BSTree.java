@@ -22,13 +22,13 @@ public class BSTree {
 			while(current != null) {
 				if(node.key < current.key) {
 					current = current.leftChild;
-					if(current == null) {
+					if(current.leftChild == null) {
 						current.leftChild = node;
 						return;
 					}
 				}else {
 					current = current.rightChild;
-					if(current == null) {
+					if(current.rightChild == null) {
 						current.rightChild = node;
 						return;
 					}
