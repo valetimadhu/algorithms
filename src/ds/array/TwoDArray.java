@@ -21,6 +21,26 @@ public class TwoDArray {
 				System.out.println(my2DArray[i][j]);
 			}
 		}
+		
+		
+		
+		int[][] arr;
+		arr = new int[10][];
+		
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = new int[10];
+			for(int j=0; j< arr[i].length; j++) {
+				arr[i][j] = 1;
+			}
+		}
+		
+		for(int i=0; i< arr.length; i++) {
+			for(int j=0; j< arr[i].length; j++) {
+				System.out.println(arr[i][j]);
+			}
+		}
+		
+		
 
 	}
 

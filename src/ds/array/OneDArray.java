@@ -207,15 +207,15 @@ public class OneDArray {
 		
 		OneDArray oneD= new OneDArray();
 		int arr1[] = {1,3,5,7};
-		int arr2[] = { 2,4,6,8,0};
+		int arr2[] = { 2,4,6,9};
 		int arr3[] = {1,2,1,1,3,4,2};
 		int arr4[] = {4,5,1,2,0,4};
 		
-//		int merged[];
-//		merged = oneD.mergeSortedArrays(arr1, arr2);
-//		for(int i=0; i< merged.length; i++) {
-//			System.out.println(merged[i]);
-//		}
+		int merged[];
+		merged = oneD.mergeSortedArrays(arr1, arr2);
+		for(int i=0; i< merged.length; i++) {
+			//System.out.println(merged[i]);
+		}
 		
 //		int[] result;
 //		result = oneD.multipleArrayWithoutIndex(arr3);
@@ -229,8 +229,8 @@ public class OneDArray {
 		//for(int i: OneDArray.findProduct(arr2)) {
 		//	System.out.println(i);
 		//}
-		System.out.println(OneDArray.removeEven(arr4));
-		
+		//System.out.println(OneDArray.removeEven(arr4));
+		System.out.println(oneD.find(arr2, 7));
 		
 	}
 	

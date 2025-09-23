@@ -1,6 +1,8 @@
 package java8;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class HashProblems {
@@ -38,6 +40,11 @@ public class HashProblems {
 	    System.out.println(isSubset(arr1, arr3));
 	    System.out.println(isDisjoint(arr1, arr2));
 	    System.out.println(isDisjoint(arr1, arr3));
+	    
+	    Map<Integer,String> map = new HashMap<>();
+	    
+	    map.put(1,"madhu");
+	   
 	}
 
 }
